@@ -12,6 +12,37 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <form id="sign-up-dropdown">
+                    <div class="form-group">
+                      <input class="form-control" name="credentials[email]" placeholder="Email" type="email">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" name="credentials[password]" placeholder="Password" type="password">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" name="credentials[password_confirmation]" placeholder="Password Confirmation" type="password">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block" value="Login">
+                  </form>
+
+                  <form id="sign-in-form">
+                    <div class="form-group">
+                      <input class="form-control" name="credentials[email]" placeholder="Email" type="email">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" name="credentials[password]" placeholder="Password" type="password">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block" value="Login">
+                  </form>
+
+                  <form id="create-rating-form">
+                    <div class="form-group">
+                      <input class="form-control" name="name" placeholder="name" type="text">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" name="rating" placeholder="rating" type="text">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block" value="submit">
+                  </form>
     </body>
 </html>
