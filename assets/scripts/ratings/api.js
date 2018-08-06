@@ -28,9 +28,32 @@ const createRating = function (data) {
     }
   })
 }
+const getRatings = function () {
+  console.log('did I get ratings?')
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/ratings',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const updateRating = function (data) {
+  console.log('api says data is ', data)
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/ratings/' + data.id,
+    data: {rating: data},
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
-  createRating
+  createRating,
+  getRatings,
+  updateRating
 }

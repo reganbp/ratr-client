@@ -25,9 +25,28 @@ const createRatingFailure = function (response) {
   // document.getElementById('create-recipe-form').reset()
   // $('#create-fail').modal()
 }
+const getRatingsSuccess = function (response) {
+  console.log('The response is ', response)
+  let newHTML = ''
+  response['ratings'].forEach(function (rating) {
+    // console.log(recipe.user_id)
+    if (rating.name === '') {
+      rating.name = 'untitled'
+    }
+    newHTML += '<ul><li><h4>' + rating.name + ': ' + rating.id + '</h4></li></ul>'
+  })
+  $('#data-show').show()
+  $('#data-show').html(newHTML)
+}
+
+const updateRatingSuccess = function (response) {
+  console.log('response is ', response)
+}
 
 module.exports = {
   signInSuccess,
   createRatingSuccess,
-  createRatingFailure
+  createRatingFailure,
+  getRatingsSuccess,
+  updateRatingSuccess
 }
