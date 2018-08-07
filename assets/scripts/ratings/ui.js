@@ -1,4 +1,6 @@
 const store = require('../store')
+// const showMyRatings = require('./templates/my-ratings-list.handlebars')
+const showRatingsTemplate = require('../templates/ratings-list.handlebars')
 
 const signInSuccess = function (response) {
   console.log('response ', response)
@@ -27,20 +29,30 @@ const createRatingFailure = function (response) {
 }
 const getRatingsSuccess = function (response) {
   console.log('The response is ', response)
-  let newHTML = ''
-  response['ratings'].forEach(function (rating) {
-    // console.log(recipe.user_id)
-    if (rating.name === '') {
-      rating.name = 'untitled'
-    }
-    newHTML += '<ul><li><h4>' + rating.name + ': ' + rating.id + '</h4></li></ul>'
-  })
-  $('#data-show').show()
-  $('#data-show').html(newHTML)
+  // let newHTML = ''
+  // response['ratings'].forEach(function (rating) {
+  //   // console.log(recipe.user_id)
+  //   if (rating.name === '') {
+  //     rating.name = 'untitled'
+  //   }
+  //   newHTML += '<ul><li><h4>' + rating.name + ': ' + rating.id + '</h4></li></ul>'
+  // })
+  // $('#data-show').show()
+  const showRatingsHtml = showRatingsTemplate({ ratings: response.ratings })
+  $('#data-show').html(showRatingsHtml)
 }
 
 const updateRatingSuccess = function (response) {
   console.log('response is ', response)
+}
+const deleteRatingSuccess = function (response) {
+  console.log('delete response is ', response)
+}
+const changePasswordSuccess = function (response) {
+  console.log('changepw response is ', response)
+}
+const signOutSuccess = function (response) {
+  console.log('signOut response is ', response)
 }
 
 module.exports = {
@@ -48,5 +60,8 @@ module.exports = {
   createRatingSuccess,
   createRatingFailure,
   getRatingsSuccess,
-  updateRatingSuccess
+  updateRatingSuccess,
+  deleteRatingSuccess,
+  changePasswordSuccess,
+  signOutSuccess
 }

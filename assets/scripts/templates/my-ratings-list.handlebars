@@ -1,0 +1,20 @@
+{{#each ratings as |rating|}}
+
+<!-- {{> partial}} -->
+
+
+ <!-- Developers, why are we using data-id and not just id? -->
+ <div class="container-fluid col-sm-3 list">
+  <h1 data-id="{{rating.id}}" class="my-rating"> <small>Name: {{rating.name}}</small></h1>
+  <ul data-id="{{rating.id}}">
+    <li>{{#if rating.rating}}
+      {{rating.rating}}
+    {{else}}
+      No rating provided.
+    {{/if}}</li>
+    <li><button class="remove-rating" type="submit">Remove</button></li>
+  </ul>
+</div>
+
+
+{{/each}}

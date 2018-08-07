@@ -49,11 +49,42 @@ const updateRating = function (data) {
     }
   })
 }
+const deleteRating = function (data) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/ratings/' + data.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const changePassword = function (data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/change-password',
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const signOut = function () {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/sign-out',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   createRating,
   getRatings,
-  updateRating
+  updateRating,
+  deleteRating,
+  changePassword,
+  signOut
 }
