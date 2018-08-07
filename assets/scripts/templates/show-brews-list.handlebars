@@ -1,0 +1,17 @@
+{{#each brews as |brew|}}
+
+
+
+ <!-- Developers, why are we using data-id and not just id? -->
+ <div class="container-fluid col-sm-4 list">
+  <h1 data-id="{{brew.id}}"><a class="show-brew"> <small>{{brew.name}}</small></a></h1>
+  <ul data-id="{{brew.id}}">
+    <li>{{#if brew.brewery}}
+      {{brew.brewery}}
+    {{else}}
+    {{/if}}</li>
+  </ul>
+</div>
+
+
+{{/each}}

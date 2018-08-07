@@ -97,9 +97,17 @@
 
 
 
+        <form id="create-brew-form" class="signed-in-view">
+          <div class="form-group">
+            <input class="form-control" name="name" placeholder="name" type="text">
+          </div>
+          <div class="form-group">
+            <input class="form-control" name="brewery" placeholder="brewery" type="text">
+          </div>
+          <input type="submit" class="btn btn-primary btn-block" value="create brew">
+        </form>
 
-
-
+<button class="btn btn-primary btn-block signed-in-view" id="show-brews-button"> brews</button>
 
 
 
@@ -137,6 +145,6 @@
 
                   <button class="btn btn-primary btn-block signed-in-view" id="show-my-ratings">my ratings</button>
 
-                  <div id="data-show"></div>
+                  <div id="data-show" class="data-show"></div>
     </body>
 </html>

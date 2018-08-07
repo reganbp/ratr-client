@@ -1,6 +1,7 @@
 const store = require('../store')
 // const showMyRatings = require('./templates/my-ratings-list.handlebars')
 const showRatingsTemplate = require('../templates/ratings-list.handlebars')
+const showCreateBrewsTemplate = require('../templates/create-brew-response.handlebars')
 
 // User Auth UI
 const signUpSuccess = function (response) {
@@ -28,18 +29,22 @@ const signOutSuccess = function (response) {
 const createRatingSuccess = function (response) {
   console.log('you created a rating, the respose is ', response)
   console.log('the store is ', store)
-  // document.getElementById('create-rating-form').reset()
-  // $('#create').hide()
-  // $('.new-recipe').show()
-  // $('.new-recipe-response').html('Name: ' + response['recipe'].name)
-  // const newHTML = '<h2>New Rating!</h2><li><h3>' + response['rating'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].grains + '<br/>Hops: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
-  // $('#get-recipe').show()
-  // $('#get-recipe').html(newHTML)
 }
 const createRatingFailure = function (response) {
   // console.log('failure, response is ', response)
   // document.getElementById('create-recipe-form').reset()
   // $('#create-fail').modal()
+}
+const createBrewSuccess = function (response) {
+  console.log('you created a rating, the respose is ', response)
+  const showCreateBrewHtml = showCreateBrewsTemplate({ brews: response })
+  $('#data-show').html(showCreateBrewHtml)
+}
+const getBrewsSuccess = function (response) {
+  console.log('response is', response)
+  const showCreateBrewHtml = showCreateBrewsTemplate({ brews: response.brews })
+  $('#data-show').html(showCreateBrewHtml)
+  $('.add-ratings-form').hide()
 }
 const getRatingsSuccess = function (response) {
   console.log('The response is ', response)
@@ -64,12 +69,12 @@ const deleteRatingSuccess = function (response) {
   console.log('delete response is ', response)
 }
 
-
-
 module.exports = {
   signInSuccess,
   createRatingSuccess,
   createRatingFailure,
+  createBrewSuccess,
+  getBrewsSuccess,
   getRatingsSuccess,
   getMyRatingsSuccess,
   updateRatingSuccess,

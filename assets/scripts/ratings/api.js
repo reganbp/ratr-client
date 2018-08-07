@@ -41,10 +41,22 @@ const signOut = function () {
 const createRating = function (data) {
   data.user_id = store.user.id
   console.log('the data is ', data)
+  console.log('rating: data', {rating: data})
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/ratings',
     data: {rating: data},
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const createBrew = function (data) {
+  console.log('data is', data)
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/brews',
+    data: {brew: data},
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -55,6 +67,16 @@ const getRatings = function () {
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/ratings',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const getBrews = function () {
+  console.log('did I get brews?')
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/brews',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -81,13 +103,13 @@ const deleteRating = function (data) {
   })
 }
 
-
-
 module.exports = {
   signUp,
   signIn,
   createRating,
+  createBrew,
   getRatings,
+  getBrews,
   updateRating,
   deleteRating,
   changePassword,
