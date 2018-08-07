@@ -12,7 +12,28 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <form id="sign-up-dropdown">
+      <!-- START NAVBAR -->
+      <nav class="navbar navbar-default">
+          <div class="container-fluid"><span class="navbar-brand">Beer Ratr</span>
+            <ul class="nav navbar-nav navbar-right ml-auto">
+              <li class="nav-item signed-out-view">
+                <a data-toggle="dropdown" class="nav-link dropdown-toggle" ><span class="glyphicon glyphicon-log-in"></span>  Login</a>
+                <ul class="container-fluid form-wrapper dropdown-menu">
+                  <form id="sign-in-form">
+                    <div class="form-group">
+                      <input class="form-control" name="credentials[email]" placeholder="Email" type="email">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" name="credentials[password]" placeholder="Password" type="password">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block" value="Login">
+                  </form>
+                </ul>
+              </li>
+              <li class="nav-item signed-out-view">
+                <a data-toggle="dropdown" class="nav-link dropdown-toggle" ><span class="glyphicon glyphicon-user"></span>  Sign Up</a>
+                <ul class="container-fluid form-wrapper dropdown-menu">
+                  <form id="sign-up-form">
                     <div class="form-group">
                       <input class="form-control" name="credentials[email]" placeholder="Email" type="email">
                     </div>
@@ -22,30 +43,67 @@
                     <div class="form-group">
                       <input class="form-control" name="credentials[password_confirmation]" placeholder="Password Confirmation" type="password">
                     </div>
-                    <input type="submit" class="btn btn-primary btn-block" value="sign up">
+                    <input type="submit" class="btn btn-primary btn-block" value="Sign Up">
                   </form>
+                </ul>
+              </li>
+              <li class="nav-item signed-in-view">
+        				<a data-toggle="dropdown" class="nav-link dropdown-toggle" ><span class="glyphicon glyphicon-edit"></span>  Change Password</a>
+        				<ul class="dropdown-menu form-wrapper container-fluid">
 
-                  <form id="sign-in-form">
-                    <div class="form-group">
-                      <input class="form-control" name="credentials[email]" placeholder="Email" type="email">
-                    </div>
-                    <div class="form-group">
-                      <input class="form-control" name="credentials[password]" placeholder="Password" type="password">
-                    </div>
-                    <input type="submit" class="btn btn-primary btn-block" value="sign in">
-                  </form>
+        						<form id="change-password-form">
+        							<div class="form-group" >
+                        <input class="form-control" name="passwords[old]" placeholder="Old Password" type="password">
+        							</div>
+        							<div class="form-group">
+        								<input class="form-control" name="passwords[new]" placeholder="New Password" type="password">
+        							</div>
+        							<input type="submit" class="btn btn-primary btn-block" value="Change Password">
+        						</form>
 
-                  <form id="change-password-form">
-                    <div class="form-group">
-                      <input class="form-control" name="passwords[old]" placeholder="Old Password" type="password">
-                    </div>
-                    <div class="form-group">
-                      <input class="form-control" name="passwords[new]" placeholder="New Password" type="password">
-                    </div>
-                    <input type="submit" class="btn btn-primary btn-block" value="change password">
-                  </form>
+        				</ul>
+              </li>
 
-                  <form id="create-rating-form">
+                <li class="nav-item signed-in-view">
+                  <a data-toggle="dropdown" class="nav-link dropdown-toggle" ><span class="glyphicon glyphicon-log-out"></span>  Sign out</a>
+          				<ul class="dropdown-menu form-wrapper">
+
+          						<form id="sign-out-button">
+          							<div>
+                          Are you sure?
+          							</div>
+          							<input type="submit" class="btn btn-primary btn-block" value="Sign Out">
+          						</form>
+
+          				</ul>
+          			</li>
+
+            </ul>
+            </div>
+        </nav>
+        <!-- END NAVBAR -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <form id="create-rating-form" class="signed-in-view">
                     <div class="form-group">
                       <input class="form-control" name="name" placeholder="name" type="text">
                     </div>
@@ -55,9 +113,9 @@
                     <input type="submit" class="btn btn-primary btn-block" value="create">
                   </form>
 
-                  <button class="btn btn-primary btn-block" id="show-my-ratings">ratings</button>
+                  <button class="btn btn-primary btn-block signed-in-view" id="show-all-ratings">ratings</button>
 
-                  <form id="update-ratings-form">
+                  <form id="update-ratings-form" class="signed-in-view">
                     <div class="form-group">
                       <input class="form-control" name="id" placeholder="id" type="text">
                     </div>
@@ -70,14 +128,14 @@
                     <input type="submit" class="btn btn-primary btn-block" value="update">
                   </form>
 
-                  <form id="delete-ratings-form">
+                  <form id="delete-ratings-form" class="signed-in-view">
                     <div class="form-group">
                       <input class="form-control" name="id" placeholder="id" type="text">
                     </div>
                     <input type="submit" class="btn btn-primary btn-block" value="delete">
                   </form>
 
-                  <button class="btn btn-primary btn-block" id="sign-out-button">sign out</button>
+                  <button class="btn btn-primary btn-block signed-in-view" id="show-my-ratings">my ratings</button>
 
                   <div id="data-show"></div>
     </body>

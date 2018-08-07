@@ -10,4 +10,5 @@ const ratingsEvents = require('./ratings/events.js')
 $(() => {
   // your JS code goes here
   ratingsEvents.addHandlers()
+  $('.signed-in-view').hide()
 })
