@@ -4,7 +4,7 @@
 
  <!-- Developers, why are we using data-id and not just id? -->
  <div class="container-fluid col-sm-4 list">
-  <h1 data-id="{{rating.id}}"><a class="show-rating"> <small>Name: {{rating.name}}</small></a></h1>
+  <h1 data-id="{{rating.id}}"><a class="show-rating"> <small>{{rating.name}}</small></a></h1>
   <ul data-id="{{rating.id}}">
     <li>{{#if rating.rating}}
       {{rating.rating}}

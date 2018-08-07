@@ -40,8 +40,8 @@ const signOut = function () {
 // ratings requests
 const createRating = function (data) {
   data.user_id = store.user.id
-  console.log('the data is ', data)
-  console.log('rating: data', {rating: data})
+  // console.log('the data is ', data)
+  // console.log('rating: data', {rating: data})
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/ratings',
