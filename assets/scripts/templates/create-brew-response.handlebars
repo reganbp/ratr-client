@@ -11,7 +11,7 @@
     {{else}}
     brewery
     {{/if}}</li>
-    <li><button class="show-brew-to-rate">button</button></li>
+    <li><button class="btn btn-primary btn-block show-brew-to-rate">Rate</button></li>
   </ul>
 
 
@@ -22,7 +22,7 @@
       <input class="form-control handlebars-form-hidden" name="name" type="text" value="{{brew.name}}">
     </div>
     <div class="form-group">
-      <input class="form-control" name="rating" type="text" placeholder="Rate: 0-5">
+      <input class="form-control" name="rating" type="text" placeholder="Rate: 0-5" required>
     </div>
     <div class="form-group">
       <input class="form-control" name="notes" placeholder="notes" type="text">

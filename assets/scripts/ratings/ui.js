@@ -2,6 +2,7 @@ const store = require('../store')
 // const showMyRatings = require('./templates/my-ratings-list.handlebars')
 const showRatingsTemplate = require('../templates/ratings-list.handlebars')
 const showCreateBrewsTemplate = require('../templates/create-brew-response.handlebars')
+// const updateRatingsList = require('../templates/update-ratings-list.handlebars')
 
 // User Auth UI
 const signUpSuccess = function (response) {
@@ -22,6 +23,7 @@ const signOutSuccess = function (response) {
   console.log('signOut response is ', response)
   $('.signed-in-view').hide()
   $('.signed-out-view').show()
+  $('#data-show').hide()
 }
 
 
@@ -61,6 +63,7 @@ const getMyRatingsSuccess = function (response) {
   })
   const showRatingsHtml = showRatingsTemplate({ ratings: data.ratings })
   $('#data-show').html(showRatingsHtml)
+  $('.update-ratings-form').hide()
 }
 const updateRatingSuccess = function (response) {
   console.log('response is ', response)

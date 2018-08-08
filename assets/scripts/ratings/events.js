@@ -89,10 +89,16 @@ const onDeleteRating = function (event) {
     .catch(authUi.deleteRatingFailure)
 }
 const onShowRateForm = function (event) {
-  const bookId = $(event.target).closest('ul').attr('data-id')
-  console.log('clicked', bookId)
+  const brewId = $(event.target).closest('ul').attr('data-id')
+  console.log('clicked', brewId)
   $('.add-ratings-form').show()
-  // $('.handlebars-form-hidden').hide()
+  $('.handlebars-form-hidden').hide()
+}
+const onShowUpdateRating = function (event) {
+  const ratingId = $(event.target).closest('ul').attr('data-id')
+  console.log('clicked', ratingId)
+  $('.update-ratings-form').show()
+  $('.handlebars-form-hidden').hide()
 }
 
 const addHandlers = () => {
@@ -109,6 +115,8 @@ const addHandlers = () => {
   $('#show-brews-button').on('click', onGetBrews)
   $('.data-show').on('click', '.show-brew-to-rate', onShowRateForm)
   $('.data-show').on('submit', '.add-ratings-form', onCreateRating)
+  $('.data-show').on('click', '.show-rating-to-update', onShowUpdateRating)
+  $('.data-show').on('submit', '.update-ratings-form', onUpdateRating)
 }
 
 module.exports = {

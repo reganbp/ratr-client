@@ -17,21 +17,22 @@
       No notes provided.
     {{/if}}</li>
     <li><button class="btn btn-primary btn-block show-rating-to-update">Update</button></li>
-    <form class="update-ratings-form">
-      <div class="form-group">
-        <input class="form-control handlebars-form-hidden" name="name" type="text" value="{{rating.name}}">
-      </div>
-      <div class="form-group">
-        <input class="form-control" name="rating" type="text" placeholder="Rate: 0-5" required>
-      </div>
-      <div class="form-group">
-        <input class="form-control" name="notes" placeholder="notes" type="text">
-      </div>
-      <input type="submit" class="btn btn-primary btn-block" value="Rate">
-    </form>
   </ul>
-</div>
 
+  <form class="update-ratings-form">
+    <div class="form-group">
+      <input class="form-control handlebars-form-hidden" name="name" type="text" value="{{rating.name}}">
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="rating" type="text" placeholder="Rate: 0-5" required>
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="notes" placeholder="notes" type="text">
+    </div>
+    <input type="submit" class="btn btn-primary btn-block" value="Rate">
+  </form>
+
+</div>
 
 
 {{/each}}
