@@ -77,16 +77,22 @@ const onUpdateRating = function (event) {
 
   authApi.updateRating(data)
     .then(authUi.updateRatingSuccess)
+    .then(onGetMyBrewRatings)
     .catch(authUi.updateRatingFailure)
 }
 const onDeleteRating = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log('data is', data)
-
+  const ratingId = $(event.target).closest('ul').attr('data-id')
+  const data = { id: ratingId }
   authApi.deleteRating(data)
     .then(authUi.deleteRatingSuccess)
+    .then(onGetMyBrewRatings)
     .catch(authUi.deleteRatingFailure)
+}
+const onGetMyBrewRatings = function () {
+  authApi.getRatings()
+    .then(authUi.getMyRatingsSuccess)
+    .catch(authUi.getMyRatingsFailure)
 }
 const onShowRateForm = function (event) {
   const brewId = $(event.target).closest('ul').attr('data-id')
@@ -116,6 +122,7 @@ const addHandlers = () => {
   $('.data-show').on('submit', '.add-ratings-form', onCreateRating)
   $('.data-show').on('click', '.show-rating-to-update', onShowUpdateRating)
   $('.data-show').on('submit', '.update-ratings-form', onUpdateRating)
+  $('.data-show').on('click', '.show-rating-to-delete', onDeleteRating)
 }
 
 module.exports = {

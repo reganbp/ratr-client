@@ -1,2 +1,20 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$gray: rgba(219, 225, 230, 0.57);
+
+.form-wrapper {
+  padding: 5px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list {
+  background-color: $gray;
+  border-color: #000;
+  margin: 5px;
+}

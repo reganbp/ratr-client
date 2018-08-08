@@ -3,6 +3,7 @@ const store = require('../store')
 const showRatingsTemplate = require('../templates/ratings-list.handlebars')
 const showCreateBrewsTemplate = require('../templates/create-brew-response.handlebars')
 // const updateRatingsList = require('../templates/update-ratings-list.handlebars')
+const eventEvent = require('./events.js')
 
 // User Auth UI
 const signUpSuccess = function (response) {
@@ -30,7 +31,6 @@ const signOutSuccess = function (response) {
 
 
 
-
 const createRatingSuccess = function (response) {
   console.log('you created a rating, the respose is ', response)
   console.log('the store is ', store)
@@ -41,6 +41,7 @@ const createRatingFailure = function (response) {
 const createBrewSuccess = function (response) {
   console.log('you created a rating, the respose is ', response)
   const showCreateBrewHtml = showCreateBrewsTemplate({ brews: response })
+  document.getElementById('create-brew-form').reset()
   $('#data-show').html(showCreateBrewHtml)
   $('.add-ratings-form').hide()
 }
