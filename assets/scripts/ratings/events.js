@@ -90,14 +90,13 @@ const onDeleteRating = function (event) {
 }
 const onShowRateForm = function (event) {
   const brewId = $(event.target).closest('ul').attr('data-id')
-  console.log('clicked', brewId)
-  $('.add-ratings-form').show()
+  $('#brew-form-' + brewId).show()
   $('.handlebars-form-hidden').hide()
 }
 const onShowUpdateRating = function (event) {
   const ratingId = $(event.target).closest('ul').attr('data-id')
   console.log('clicked', ratingId)
-  $('.update-ratings-form').show()
+  $('#rating-form-' + ratingId).show()
   $('.handlebars-form-hidden').hide()
 }
 

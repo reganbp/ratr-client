@@ -16,13 +16,17 @@
     {{else}}
       No notes provided.
     {{/if}}</li>
-    <li><button class="btn btn-primary btn-block show-rating-to-update">Update</button></li>
-    <form class="update-ratings-form">
+    <li class="handlebars-form-hidden"><button class="btn btn-primary btn-block show-rating-to-update">Update</button></li>
+
+    <form id="rating-form-{{rating.id}}" class="update-ratings-form">
+      <div class="form-group">
+        <input class="form-control handlebars-form-hidden" name="id" type="text" value="{{rating.id}}">
+      </div>
       <div class="form-group">
         <input class="form-control handlebars-form-hidden" name="name" type="text" value="{{rating.name}}">
       </div>
       <div class="form-group">
-        <input class="form-control" name="rating" type="text" placeholder="Rate: 0-5" required>
+        <input class="form-control" name="rating" type="text" placeholder="Rate: 0-5">
       </div>
       <div class="form-group">
         <input class="form-control" name="notes" placeholder="notes" type="text">

@@ -16,10 +16,10 @@
     {{else}}
       No notes provided.
     {{/if}}</li>
-    <li><button class="btn btn-primary btn-block show-rating-to-update">Update</button></li>
+    <li class="handlebars-form-hidden"><button class="btn btn-primary btn-block show-rating-to-update">Update</button></li>
   </ul>
 
-  <form class="update-ratings-form">
+  <form id="rating-form-{{rating.id}}" class="update-ratings-form">
     <div class="form-group">
       <input class="form-control handlebars-form-hidden" name="name" type="text" value="{{rating.name}}">
     </div>

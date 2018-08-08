@@ -28,19 +28,21 @@ const signOutSuccess = function (response) {
 
 
 
+
+
+
 const createRatingSuccess = function (response) {
   console.log('you created a rating, the respose is ', response)
   console.log('the store is ', store)
 }
 const createRatingFailure = function (response) {
-  // console.log('failure, response is ', response)
-  // document.getElementById('create-recipe-form').reset()
-  // $('#create-fail').modal()
+  console.log('failure, response is ', response)
 }
 const createBrewSuccess = function (response) {
   console.log('you created a rating, the respose is ', response)
   const showCreateBrewHtml = showCreateBrewsTemplate({ brews: response })
   $('#data-show').html(showCreateBrewHtml)
+  $('.add-ratings-form').hide()
 }
 const getBrewsSuccess = function (response) {
   console.log('response is', response)
@@ -52,6 +54,7 @@ const getRatingsSuccess = function (response) {
   console.log('The response is ', response)
   const showRatingsHtml = showRatingsTemplate({ ratings: response.ratings })
   $('#data-show').html(showRatingsHtml)
+  $('.update-ratings-form').hide()
 }
 const getMyRatingsSuccess = function (response) {
   console.log('The response is ', response)
@@ -64,6 +67,9 @@ const getMyRatingsSuccess = function (response) {
   const showRatingsHtml = showRatingsTemplate({ ratings: data.ratings })
   $('#data-show').html(showRatingsHtml)
   $('.update-ratings-form').hide()
+}
+const showRatingsForm = function (id) {
+  console.log('id', id)
 }
 const updateRatingSuccess = function (response) {
   console.log('response is ', response)
@@ -84,5 +90,6 @@ module.exports = {
   deleteRatingSuccess,
   changePasswordSuccess,
   signOutSuccess,
-  signUpSuccess
+  signUpSuccess,
+  showRatingsForm
 }
