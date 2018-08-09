@@ -40,8 +40,8 @@ const signOut = function () {
 // ratings requests
 const createRating = function (data) {
   data.user_id = store.user.id
-  console.log('the data is ', data)
-  console.log('rating: data', {rating: data})
+  // console.log('the data is ', data)
+  // console.log('rating: data', {rating: data})
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/ratings',
@@ -52,7 +52,7 @@ const createRating = function (data) {
   })
 }
 const createBrew = function (data) {
-  console.log('data is', data)
+  // console.log('data is', data)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/brews',
@@ -63,7 +63,7 @@ const createBrew = function (data) {
   })
 }
 const getRatings = function () {
-  console.log('did I get ratings?')
+  // console.log('did I get ratings?')
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/ratings',
@@ -73,7 +73,7 @@ const getRatings = function () {
   })
 }
 const getBrews = function () {
-  console.log('did I get brews?')
+  // console.log('did I get brews?')
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/brews',
@@ -83,7 +83,7 @@ const getBrews = function () {
   })
 }
 const updateRating = function (data) {
-  console.log('api says data is ', data)
+  // console.log('api says data is ', data)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/ratings/' + data.id,

@@ -3,7 +3,7 @@
 
 
  <!-- Developers, why are we using data-id and not just id? -->
- <div class="container-fluid col-sm-4 list">
+ <div class="container-fluid col-sm-4 col-md-4 col-lg-4 list">
   <h1 data-id="{{rating.id}}"><a class="show-rating"> <small>{{rating.name}}</small></a></h1>
   <ul data-id="{{rating.id}}">
     <li>{{#if rating.rating}}
@@ -16,8 +16,8 @@
     {{else}}
       No notes provided.
     {{/if}}</li>
-    <li class="handlebars-form-hidden"><button class="btn btn-primary btn-block show-rating-to-update">Update</button></li>
-    <li class="handlebars-form-hidden"><button class="btn btn-primary btn-block show-rating-to-delete">Remove</button></li>
+    <li class="handlebars-form-hidden-{{rating.id}}"><button class="btn btn-primary btn-block show-rating-to-update">Update</button></li>
+    <li class="handlebars-form-hidden-{{rating.id}}"><button class="btn btn-primary btn-block show-rating-to-delete">Remove</button></li>
 
 
     <form id="rating-form-{{rating.id}}" class="update-ratings-form">
@@ -25,16 +25,16 @@
         <input class="form-control handlebars-form-hidden" name="id" type="text" value="{{rating.id}}">
       </div>
       <div class="form-group">
-        <input class="form-control handlebars-form-hidden" name="name" type="text" value="{{rating.brewery}} + {{rating.name}}">
+        <input class="form-control handlebars-form-hidden" name="name" type="text" value="{{rating.name}}">
       </div>
       <div class="form-group">
         <input class="form-control handlebars-form-hidden" name="brewery" type="text" value="{{rating.brewery}}">
       </div>
       <div class="form-group">
-        <input class="form-control" name="rating" type="text" placeholder="Rate: 0-5">
+        <input class="form-control" name="rating" type="text" placeholder="Rate: 0-5" value="{{rating.rating}}">
       </div>
       <div class="form-group">
-        <input class="form-control" name="notes" placeholder="notes" type="text">
+        <input class="form-control" name="notes" placeholder="notes" type="text" value="{{rating.notes}}">
       </div>
       <input type="submit" class="btn btn-primary btn-block" value="Rate">
     </form>

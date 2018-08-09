@@ -11,6 +11,7 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body>
       <!-- START NAVBAR -->
       <nav class="navbar navbar-default">
@@ -83,69 +84,136 @@
         </nav>
         <!-- END NAVBAR -->
 
+<!-- MODALS -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container col-md-12 col-lg-12 col-sm-12">
-  <button class="btn btn-primary btn-block signed-in-view" id="rate-button">rate</button>
-        <form id="create-brew-form">
-          <div class="form-group">
-            <input class="form-control" name="name" placeholder="name" type="text" required>
+        <div class="modal fade" id="rerate-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                You've already rated that Brew. Update on your list.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <input class="form-control" name="brewery" placeholder="brewery" type="text" required>
+        </div>
+
+        <div class="modal fade" id="up-form-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+            That username is taken or passwords do not match, try again!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
-          <input type="submit" class="btn btn-primary btn-block" value="create brew">
-        </form>
+        </div>
 
-<button class="btn btn-primary btn-block signed-in-view" id="show-brews-button"> brews</button>
+        <div class="modal fade" id="in-success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Success!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="in-form-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+            Incorrect user name or password
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="pass-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+            Are you sure that was your old password?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="out-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+            We didn't sign you out, try again!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
+<!-- END MODALS -->
 
-                  <!-- <form id="create-rating-form" class="signed-in-view">
-                    <div class="form-group">
-                      <input class="form-control" name="name" placeholder="name" type="text">
-                    </div>
-                    <div class="form-group">
-                      <input class="form-control" name="rating" placeholder="rating" type="text">
-                    </div>
-                    <input type="submit" class="btn btn-primary btn-block" value="create">
-                  </form> -->
+        <div class="container col-md-12 col-lg-12 col-sm-12 signed-in-view">
+          <h2>What are you drinking? Check for it below or search to add it to your list!</h2>
+          <form id="create-brew-form">
+            <div class="form-group">
+              <input class="form-control" name="name" placeholder="name" type="text" required>
+            </div>
+            <div class="form-group">
+              <input class="form-control" name="brewery" placeholder="brewery" type="text" required>
+            </div>
+            <input type="submit" class="btn btn-primary btn-block" value="Search">
+          </form>
 
-                  <!-- <button class="btn btn-primary btn-block signed-in-view" id="show-all-ratings">ratings</button>
+          <button class="btn btn-primary btn-block signed-in-view" id="rate-button">Search</button>
+          <button class="btn btn-primary btn-block signed-in-view" id="show-brews-button">Peruse Brews</button>
+          <button class="btn btn-primary btn-block signed-in-view" id="show-my-ratings">My List</button>
+        </div>
 
-                  <form id="update-ratings-form" class="signed-in-view">
-                    <div class="form-group">
-                      <input class="form-control" name="id" placeholder="id" type="text">
-                    </div>
-                    <div class="form-group">
-                      <input class="form-control" name="name" placeholder="name" type="text">
-                    </div>
-                    <div class="form-group">
-                      <input class="form-control" name="rating" placeholder="rating" type="text">
-                    </div>
-                    <input type="submit" class="btn btn-primary btn-block" value="update">
-                  </form> -->
-
-                  <!-- <form id="delete-ratings-form" class="signed-in-view">
-                    <div class="form-group">
-                      <input class="form-control" name="id" placeholder="id" type="text">
-                    </div>
-                    <input type="submit" class="btn btn-primary btn-block" value="delete">
-                  </form> -->
-
-                  <button class="btn btn-primary btn-block signed-in-view" id="show-my-ratings">my ratings</button>
-</div>
-                  <div id="data-show" class="data-show signed-in-view"></div>
+        <div id="data-show" class="container-fluid data-show signed-in-view"></div>
     </body>
 </html>
