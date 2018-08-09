@@ -92,11 +92,16 @@ const getMyRatingsSuccess = function (response) {
     if (rating.user_id === store.user.id) {
       data.ratings.push(rating)
     }
-    $('#show-brews-button').show()
   })
-  const showRatingsHtml = showRatingsTemplate({ ratings: data.ratings })
-  $('#data-show').html(showRatingsHtml)
-  $('.update-ratings-form').hide()
+  if (data.ratings.length === 0) {
+    const newHtml = '<h3>You have not rated anything yet</h3>'
+    $('#data-show').html(newHtml)
+  } else {
+    const showRatingsHtml = showRatingsTemplate({ ratings: data.ratings })
+    $('#data-show').html(showRatingsHtml)
+    $('#show-brews-button').show()
+    $('.update-ratings-form').hide()
+  }
 }
 const showRatingsForm = function (id) {
   // console.log('id', id)
