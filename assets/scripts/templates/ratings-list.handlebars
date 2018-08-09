@@ -25,7 +25,10 @@
         <input class="form-control handlebars-form-hidden" name="id" type="text" value="{{rating.id}}">
       </div>
       <div class="form-group">
-        <input class="form-control handlebars-form-hidden" name="name" type="text" value="{{rating.name}}">
+        <input class="form-control handlebars-form-hidden" name="name" type="text" value="{{rating.brewery}} + {{rating.name}}">
+      </div>
+      <div class="form-group">
+        <input class="form-control handlebars-form-hidden" name="brewery" type="text" value="{{rating.brewery}}">
       </div>
       <div class="form-group">
         <input class="form-control" name="rating" type="text" placeholder="Rate: 0-5">
