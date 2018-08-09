@@ -3,7 +3,7 @@ const store = require('../store')
 const showRatingsTemplate = require('../templates/ratings-list.handlebars')
 const showCreateBrewsTemplate = require('../templates/create-brew-response.handlebars')
 // const updateRatingsList = require('../templates/update-ratings-list.handlebars')
-const eventEvent = require('./events.js')
+// const eventEvent = require('./events.js')
 
 // User Auth UI
 const signUpSuccess = function (response) {

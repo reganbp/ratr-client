@@ -11,4 +11,5 @@ $(() => {
   // your JS code goes here
   ratingsEvents.addHandlers()
   $('.signed-in-view').hide()
+  $('#create-brew-form').hide()
 })
