@@ -22,6 +22,7 @@ const signInSuccess = function (response) {
   $('.signed-out-view').hide()
   $('.signed-in-view').show()
   $('#show-brews-button').hide()
+  // $('#search-my-ratings').hide()
 }
 const signInFailure = function (response) {
   document.getElementById('sign-in-form').reset()
@@ -43,6 +44,7 @@ const signOutSuccess = function (response) {
   $('#data-show').hide()
   $('#create-brew-form').hide()
   $('#show-brews-button').hide()
+  // $('#search-my-ratings').hide()
   document.getElementById('create-brew-form').reset()
   document.getElementById('change-password-form').reset()
 }
@@ -78,6 +80,8 @@ const getBrewsSuccess = function (response) {
   const showCreateBrewHtml = showCreateBrewsTemplate({ brews: response.brews })
   $('#data-show').html(showCreateBrewHtml)
   $('.add-ratings-form').hide()
+  $('#show-brews-button').hide()
+  $('#show-my-ratings').show()
 }
 const getRatingsSuccess = function (response) {
   // console.log('The response is ', response)
@@ -94,13 +98,17 @@ const getMyRatingsSuccess = function (response) {
     }
   })
   if (data.ratings.length === 0) {
-    const newHtml = '<h3>You have not rated anything yet</h3>'
+    const newHtml = '<br><h3>You have not rated anything yet</h3>'
     $('#data-show').html(newHtml)
+    $('#show-brews-button').show()
+    $('#show-my-ratings').hide()
   } else {
     const showRatingsHtml = showRatingsTemplate({ ratings: data.ratings })
     $('#data-show').html(showRatingsHtml)
     $('#show-brews-button').show()
     $('.update-ratings-form').hide()
+    $('#show-my-ratings').hide()
+    // $('#search-my-ratings').show()
   }
 }
 const showRatingsForm = function (id) {
